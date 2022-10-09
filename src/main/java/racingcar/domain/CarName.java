@@ -6,14 +6,19 @@ public class CarName {
 
     private String name;
 
-    private CarName(){}
-
     public CarName(String name) {
-        //TODO:자동차이름 입력시 CAR_NAME_MAX_LENGTH 넘어가면 에러발생시키기
+        validateCarNameLength(name);
         this.name = name;
     }
 
     public String getName(){
         return this.name;
     }
+
+    private void validateCarNameLength(String name) {
+        if (name.length() > CAR_NAME_MAX_LENGTH) {
+            throw new IllegalArgumentException("[ERROR] 자동차 이름을 5자 이하만 입력 가능합니다. 다시 입력해주세요.");
+        }
+    }
+
 }
