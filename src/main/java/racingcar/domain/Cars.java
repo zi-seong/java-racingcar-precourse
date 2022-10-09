@@ -1,17 +1,44 @@
 package racingcar.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Cars {
+
+    private final String CARS_SPLIT_STRING = ",";
 
     private List<Car> carList = new ArrayList<>();
 
 
     public Cars(String cars) {
-        //TODO: 밸리데이션 체크하기
-        this.carList = carList;
+        validateCarSize(cars);
+        validdateDuplicateName(cars);
+        settingCarList(cars);
     }
 
     //TODO: 우승자를 뽑는 메소드 구현하기
+
+    private void settingCarList(String cars){
+        for(String name : cars.split(",")){
+            Car car = new Car(name);
+            this.carList.add(car);
+        }
+    }
+
+    public List<Car> getCarList(){
+        return this.carList;
+    }
+
+    private void validateCarSize(String cars) {
+        if (cars.split(CARS_SPLIT_STRING).length == 1) {
+            throw new IllegalArgumentException("[ERROR] 자동차 이름을 한 대 이상 입력해야 경주를 할 수 있습니다. 다시 입력해주세요.");
+        }
+    }
+
+    private void validdateDuplicateName(String cars) {
+        String[] names = cars.split(CARS_SPLIT_STRING);
+        Set<String> carSet = new HashSet<>(Arrays.asList(names));
+        if (names.length != carSet.size()) {
+            throw new IllegalArgumentException("[ERROR] 중복된 자동차 이름은 사용 할 수 없습니다. 다시 입력해주세요.");
+        }
+    }
 }
