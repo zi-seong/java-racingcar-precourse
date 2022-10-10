@@ -1,5 +1,6 @@
 package racingcar;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.CarName;
 
@@ -10,6 +11,7 @@ public class CarNameTest {
 
 
     @Test
+    @DisplayName("자동차 생성")
     void successCarName() {
 
         CarName carName = new CarName("CAR1");
@@ -18,6 +20,7 @@ public class CarNameTest {
     }
 
     @Test
+    @DisplayName("자동차 이름 5자리 넘을 시 에러발생")
     void overMaxCarNameLength() {
         assertThatThrownBy(() -> {
             CarName carName = new CarName("123456");
@@ -25,6 +28,7 @@ public class CarNameTest {
     }
 
     @Test
+    @DisplayName("자동차 이름 공백으로 등록 시 에러발생")
     void emptyName() {
         assertThatThrownBy(() -> {
             CarName carName = new CarName("");
