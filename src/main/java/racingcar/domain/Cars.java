@@ -8,14 +8,13 @@ public class Cars {
 
     private List<Car> carList = new ArrayList<>();
 
+    public Cars(){}
 
     public Cars(String cars) {
         validateCarSize(cars);
         validdateDuplicateName(cars);
         settingCarList(cars);
     }
-
-    //TODO: 우승자를 뽑는 메소드 구현하기
 
     private void settingCarList(String cars){
         for(String name : cars.split(",")){
