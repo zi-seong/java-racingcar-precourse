@@ -21,4 +21,10 @@ public class CarName {
         }
     }
 
+    private void validateCarNameEmpty(String name) {
+        if ("".equals(name)) {
+            throw new IllegalArgumentException("[ERROR] 자동차 이름에 공백은 입력 불가능합니다. 다시 입력해주세요.");
+        }
+    }
+
 }
