@@ -25,7 +25,7 @@ public class Racing {
         System.out.println();
         for(Car car : cars.getCarList()){
             car.getCarPosition().updatePosition(getRandomNumber());
-            System.out.println(car.getCarName().getName() + ":" + car.getCarPosition().getPositionProgress());
+            System.out.println(car.getCarName().getName() + " : " + car.getCarPosition().getPositionProgress());
         }
     }
 
