@@ -23,4 +23,11 @@ public class CarNameTest {
             CarName carName = new CarName("123456");
         }).isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void emptyName() {
+        assertThatThrownBy(() -> {
+            CarName carName = new CarName("");
+        }).isInstanceOf(IllegalArgumentException.class);
+    }
 }
