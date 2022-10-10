@@ -12,6 +12,8 @@ public class CarPosition {
         return this.position;
     }
 
+    public void setPosition(int position){this.position = position;};
+
     public void updatePosition(int randomNum){
         if(randomNum >= 4){
             this.position ++;
