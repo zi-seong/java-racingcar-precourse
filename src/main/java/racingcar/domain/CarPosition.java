@@ -12,4 +12,10 @@ public class CarPosition {
         return this.position;
     }
 
+    public void updatePosition(int randomNum){
+        if(randomNum >= 4){
+            this.position ++;
+        }
+    }
+
 }
