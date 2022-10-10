@@ -18,4 +18,12 @@ public class CarPosition {
         }
     }
 
+    public String getPositionProgress(){
+        String progress = "";
+        for(int index=0;index<this.position;index++){
+            progress += "-";
+        }
+        return progress;
+    }
+
 }
