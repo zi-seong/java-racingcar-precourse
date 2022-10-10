@@ -8,6 +8,7 @@ public class CarName {
 
     public CarName(String name) {
         validateCarNameLength(name);
+        validateCarNameEmpty(name);
         this.name = name;
     }
 
