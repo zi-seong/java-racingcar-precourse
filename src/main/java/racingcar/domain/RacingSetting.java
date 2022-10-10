@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.common.MessageMaker;
 
 public class RacingSetting {
 
@@ -53,7 +54,7 @@ public class RacingSetting {
         try{
           Integer.parseInt(roundNum);
         }catch (NumberFormatException ne){
-            throw new IllegalArgumentException("[ERROR] 시도할 회수는 숫자로만 입력해야합니다. 다시 입력해주세요.");
+            throw new IllegalArgumentException(MessageMaker.consoleOutErrorMessage("시도할 회수는 숫자로만 입력해야합니다."));
         }
     }
 }

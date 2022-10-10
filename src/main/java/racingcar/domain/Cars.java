@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.common.MessageMaker;
+
 import java.util.*;
 
 public class Cars {
@@ -17,7 +19,7 @@ public class Cars {
     }
 
     private void settingCarList(String cars){
-        for(String name : cars.split(",")){
+        for(String name : cars.split(CARS_SPLIT_STRING)){
             Car car = new Car(name);
             this.carList.add(car);
         }
@@ -29,7 +31,7 @@ public class Cars {
 
     private void validateCarSize(String cars) {
         if (cars.split(CARS_SPLIT_STRING).length == 1) {
-            throw new IllegalArgumentException("[ERROR] 자동차 이름을 한 대 이상 입력해야 경주를 할 수 있습니다. 다시 입력해주세요.");
+            throw new IllegalArgumentException(MessageMaker.consoleOutErrorMessage("자동차 이름을 한 대 이상 입력해야 경주를 할 수 있습니다."));
         }
     }
 
@@ -37,7 +39,7 @@ public class Cars {
         String[] names = cars.split(CARS_SPLIT_STRING);
         Set<String> carSet = new HashSet<>(Arrays.asList(names));
         if (names.length != carSet.size()) {
-            throw new IllegalArgumentException("[ERROR] 중복된 자동차 이름은 사용 할 수 없습니다. 다시 입력해주세요.");
+            throw new IllegalArgumentException(MessageMaker.consoleOutErrorMessage("중복된 자동차 이름은 사용 할 수 없습니다."));
         }
     }
 }
